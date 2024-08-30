@@ -1,11 +1,12 @@
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
 
 from sqlalchemy import String
 from sqlalchemy import text, BIGINT, Boolean, true
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, TimestampMixin, TableNameMixin
-
+if TYPE_CHECKING:
+    from transaction import Transaction
 
 class User(Base, TimestampMixin, TableNameMixin):
     """
@@ -35,6 +36,9 @@ class User(Base, TimestampMixin, TableNameMixin):
     full_name: Mapped[str] = mapped_column(String(128))
     active: Mapped[bool] = mapped_column(Boolean, server_default=true())
     language: Mapped[str] = mapped_column(String(10), server_default=text("'en'"))
+
+    transactions: Mapped[list["Transaction"]] = relationship("Transaction", back_populates="user")
+
 
     def __repr__(self):
         return f"<User {self.user_id} {self.username} {self.full_name}>"

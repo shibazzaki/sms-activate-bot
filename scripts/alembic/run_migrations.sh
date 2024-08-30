@@ -1,1 +1,1 @@
-docker-compose exec bot alembic upgrade head
+docker compose exec bot alembic upgrade head
