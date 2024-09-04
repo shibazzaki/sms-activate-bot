@@ -1,14 +1,18 @@
 aiogram~=3.0
 environs~=9.0
 redis
-betterlogging
+betterlogging~=1.0.0
 
 # # For enabling api:
-backoff
-ujson
-yarl
+backoff~=2.2.1
+ujson~=5.10.0
+yarl~=1.9.4
 
 # # For PostgreSQL sqlalchemy + alembic:
 sqlalchemy~=2.0
 alembic~=1.0
 asyncpg
+
+aiocryptopay~=0.4.4
+typing_extensions~=4.12.2
+aiohttp~=3.10.5

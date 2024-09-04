@@ -4,7 +4,7 @@ from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery
 from aiogram.utils.formatting import as_section, as_key_value, as_marked_list
 
-from infrastructure.database.models.transaction import TransactionType
+from infrastructure.database.models.transaction import Transaction
 from infrastructure.database.repo.requests import RequestsRepo
 from tgbot.keyboards.inline import simple_menu_keyboard, my_orders_keyboard, \
     OrderCallbackData
@@ -25,7 +25,7 @@ async def create_order(query: CallbackQuery, repo: RequestsRepo):
     tx = await repo.transactions.create_transaction(
         user_id=query.from_user.id,
         amount = -1000,
-        type = TransactionType.EXPENDITURE,
+        comment = "Bla bla bla",
         description="Замовлення товару"
     )
     # This method will send an answer to the message with the button, that user pressed
