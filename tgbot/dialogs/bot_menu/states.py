@@ -4,6 +4,7 @@ class MainMenu(StatesGroup):
     main = State()
     profile = State()
     buy_number = State()
+    info = State()
     admin_panel = State()
 
 class ProfileMenu(StatesGroup):
@@ -22,3 +23,9 @@ class PurchaseMenu(StatesGroup):
     select_country = State()
     check_balance = State()
     payment = State()
+
+class InfoMenu(StatesGroup):
+    faq = State()
+    rules = State()
+    tech_support = State()
+    our_projects = State()

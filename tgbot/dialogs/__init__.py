@@ -1,4 +1,4 @@
-from .shop_dialogs import (
+from tgbot.dialogs.bot_menu.windows import (
     main_menu,
     purchase_menu
 )

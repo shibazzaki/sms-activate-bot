@@ -3,7 +3,7 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message
 from aiogram_dialog import DialogManager, StartMode
 
-from tgbot.dialogs.states import MainMenu
+from tgbot.dialogs.bot_menu.states import MainMenu
 
 user_router = Router()
 

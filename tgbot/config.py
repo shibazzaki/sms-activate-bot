@@ -129,6 +129,21 @@ class RedisConfig:
             redis_pass=redis_pass, redis_port=redis_port, redis_host=redis_host
         )
 
+@dataclass
+class CryptoPayConfig:
+    api_key: str
+
+    @staticmethod
+    def from_env(env: Env):
+        return CryptoPayConfig(api_key=env.str("CRYPTOPAY_API_KEY"))
+
+@dataclass
+class SmsActivateConfig:
+    api_key: str
+
+    @staticmethod
+    def from_env(env: Env):
+        return SmsActivateConfig(api_key=env.str("SMS_ACTIVATE_API_KEY"))
 
 @dataclass
 class Miscellaneous:
@@ -165,7 +180,8 @@ class Config:
     redis : Optional[RedisConfig]
         Holds the settings specific to Redis (default is None).
     """
-
+    crypto_pay: CryptoPayConfig
+    sms_activate: SmsActivateConfig
     tg_bot: TgBot
     misc: Miscellaneous
     db: Optional[DbConfig] = None
@@ -188,6 +204,8 @@ def load_config(path: str = None) -> Config:
     return Config(
         tg_bot=TgBot.from_env(env),
         db=DbConfig.from_env(env),
+        crypto_pay=CryptoPayConfig.from_env(env),
+        sms_activate=SmsActivateConfig.from_env(env),
         # redis=RedisConfig.from_env(env),
         misc=Miscellaneous(),
     )

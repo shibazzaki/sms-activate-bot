@@ -6,9 +6,6 @@ from tgbot.config import Config
 from tgbot.services.cryptopay_service import CryptoPayService
 from tgbot.filters.admin import AdminFilter
 
-async def to_second(callback: CallbackQuery, button: Button,
-                    manager: DialogManager):
-    await manager.switch_to(DialogSG.second)
 
 
 # Check if the user is an admin
@@ -35,3 +32,4 @@ async def handle_payment(c, b, dialog_manager):
     )
 
     await c.message.answer(f"Please pay using this link: {invoice.pay_url}")
+    

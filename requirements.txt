@@ -16,3 +16,4 @@ asyncpg
 aiocryptopay~=0.4.4
 typing_extensions~=4.12.2
 aiohttp~=3.10.5
+smsactivate~=1.5
