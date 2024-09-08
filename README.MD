@@ -76,5 +76,3 @@ async def main():
 
     `docker-compose exec api alembic upgrade head`
 
-### Туторіали з aiogram v3
-Відосів поки що немає, але @Groosha вже почав робити [свій підручник](https://mastergroosha.github.io/aiogram-3-guide).
