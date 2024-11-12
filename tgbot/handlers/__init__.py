@@ -8,7 +8,6 @@ routers_list = [
     admin_router,
     menu_router,
     user_router,
-
     echo_router,  # echo_router must be last
 ]
 

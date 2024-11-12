@@ -1,5 +1,6 @@
 from aiogram_dialog import Dialog
-from .windows import categories_window, products_window, product_info_window
+from .windows import main_menu, purchase_menu, profile_menu, info_menu
+
 
 def bot_menu_dialogs():
     """
@@ -7,8 +8,9 @@ def bot_menu_dialogs():
     """
     return [
         Dialog(
-            categories_window(),
-            products_window(),
-            product_info_window()
+            main_menu(),
+            purchase_menu(),
+            profile_menu(),
+            info_menu()
         )
     ]

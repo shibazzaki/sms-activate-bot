@@ -2,6 +2,7 @@ aiogram~=3.0
 environs~=9.0
 redis
 betterlogging~=1.0.0
+aiogram_dialog~=2.2.0
 
 # # For enabling api:
 backoff~=2.2.1
@@ -17,3 +18,4 @@ aiocryptopay~=0.4.4
 typing_extensions~=4.12.2
 aiohttp~=3.10.5
 smsactivate~=1.5
+requests~=2.32.3

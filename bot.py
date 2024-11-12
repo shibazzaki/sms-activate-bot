@@ -1,6 +1,6 @@
 import asyncio
 import logging
-
+from tgbot.dialogs import main_menu, profile_menu, purchase_menu, info_menu
 import betterlogging as bl
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
@@ -97,9 +97,13 @@ async def main():
     engine = create_engine(config.db, echo=True)
     session_pool = create_session_pool(engine)
     dp.include_routers(*routers_list)
+    dp.include_routers(
+        main_menu, purchase_menu, profile_menu, info_menu
+    )
     dp.update.outer_middleware(DatabaseMiddleware(session_pool))
 
     register_global_middlewares(dp, config)
+    setup_dialogs(dp)
 
     await on_startup(bot, config.tg_bot.admin_ids)
     await dp.start_polling(bot)
